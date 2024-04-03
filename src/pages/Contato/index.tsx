@@ -1,37 +1,85 @@
+import { useEffect, useState } from "react";
 import { FormContainer } from "./styles"
+import axios from "axios";
+
+interface ICidades {
+    id: number,
+    nome: string
+}
 
 export const Contato = () => {
+
+    const [Cidades, setDataCidade] = useState<Array<ICidades>>([]);
+
+    const [nome, setNome] = useState ("");
+    const [telefone, setTelefone] = useState ("");
+    const [email, setEmail] = useState ("");
+    const [cidade, setCidade] = useState ("");
+    const [obs, setObs] = useState ("");
+
+    useEffect(() => {
+
+        axios.get('http://localhost:3000/cidades')
+          .then((res) => {
+            setDataCidade(res.data)
+          })
+          .catch((err: any) => {
+            console.log(err)
+          })
+      }, [])
+
+      function criarTarefa() {
+        axios.post('http://localhost:3000/contatos', {nome , telefone, email, cidade, obs})
+            .then((res) => console.log(res.data))
+            .catch(err => console.error(err))
+            
+
+      }
+
+      function limparCampos() {
+        setNome("")
+        setTelefone("")
+        setEmail("")
+        setCidade("")
+        setObs("")
+    }
+
     return (
         <>
             <body>
-                <FormContainer>
+                <FormContainer onSubmit={criarTarefa}   >
                     <div>
                         <h1>Contato</h1>
 
                         <span>Está é a página de contato. Em caso de dúvidas, críticas ou sujestões, preencha o formulário abaixo e iremos responder.</span>
 
-                        <form id="meuFormulario">
-                            <label htmlFor="">Digite seu nome</label>
-                            <input type="text" id="nome" required placeholder="Digite o seu nome:" />
+                            <label htmlFor="" >Digite seu nome</label>
+                            <input type="text" id="nome" required placeholder="Digite o seu nome:" name="nome" value={nome} onChange={e => setNome(e.target.value)} />
 
                             <label htmlFor="">Digite seu número de telefone</label>
-                            <input type="tel" id="telefone" required placeholder="Número de telefone:" />
+                            <input type="tel" id="telefone" required placeholder="Número de telefone:" name="telefone" value={telefone} onChange={e => setTelefone(e.target.value)} />
 
                             <label htmlFor="">Digite seu e-mail</label>
-                            <input type="email" id="email" required placeholder="Número seu e-mail:" />
+                            <input type="email" id="email" required placeholder="Número seu e-mail:" name="email"  value={email} onChange={e => setEmail(e.target.value)} />
 
                             <label htmlFor=""></label>
-                            <select name="cities" id="citie" required>
-                                <option value="">Selecione sua cidade</option>
-                                <option value="">Umuarama</option>
-                                <option value="">Maria Helena</option>
+                            <select name="cidades" id="citie" required value={cidade} onChange={e => setCidade(e.target.value)} >
+                                    {
+                                        Cidades.map((cidades) => {
+                                            return (
+                                                <option key={cidades.id} value={cidades.nome}>{cidades.nome}</option>
+                                            )
+                                        })
+                                    }
+
                             </select>
 
-                            <textarea name="" id=""></textarea>
+                            <textarea name="obs" id="" value={obs} onChange={e => setObs(e.target.value)} ></textarea>
 
-                            <button type="submit">Enviar</button>
-                        </form>
+                            <button type="submit" onSubmit={limparCampos} >Enviar</button>
+
                     </div>
+                    
                 </FormContainer>
             </body>
         </>

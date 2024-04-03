@@ -6,6 +6,7 @@ import {
 import { Home } from './pages/Home'
 import { Carrinho } from './pages/Carrinho'
 import { Contato } from './pages/Contato'
+import { Produtos } from './pages/Produtos'
 
 export const Rotas = () => {
 
@@ -21,8 +22,12 @@ export const Rotas = () => {
           element={<Carrinho />}
         />
         <Route
-          path='/contato'
+          path='/contatos'
           element={<Contato />}
+        />
+        <Route
+          path='/produto/:id'
+          element={<Produtos />}
         />
       </Routes>
     </BrowserRouter>

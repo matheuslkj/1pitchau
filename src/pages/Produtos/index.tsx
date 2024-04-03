@@ -1,10 +1,39 @@
 import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
 import { Menu } from "../../components/Menu"
 import { Button, Col4, Col6, Input, Row, TextButton } from "./style"
+import axios from "axios"
+
+
+interface IDataProdutos {
+  id: number;
+  nome: string;
+  valor: number;
+  promo: number;
+  imagemg: string;
+  imagemp: string;
+id_categoria: number;
+promoNumber: string
+}
+
+
 
 export const Produtos = () => {
 
+  const [dataProdutos, setDataProdutos] = useState<IDataProdutos>()
   const { id } = useParams()
+
+  useEffect(() => {
+
+    axios.get(`http://localhost:3000/produtos/${id}`)
+      .then((res) => {
+        setDataProdutos(res.data)
+      })
+      .catch((err: any) => {
+        console.log(err)
+      })
+  }, [])
+
 
   return (
     <>
@@ -25,22 +54,22 @@ export const Produtos = () => {
                 style={{
                   width: '100%'
                 }}
-                src="https://raw.githubusercontent.com/profchines/imagens1Pitchau/main/Imagens1Pitchau/monitores/monitor1g.jpg"
+                src={'https://raw.githubusercontent.com/profchines/imagens1Pitchau/main/Imagens1Pitchau/' + dataProdutos?.imagemg}
               />
             </Col4>
             <Col6>
-              <h3>Tv Top da galaxia</h3>
+              <h3>{dataProdutos?.nome}</h3>
               <p
                 style={{
                   textDecoration: 'line-through'
                 }}
-              >R$ 1.500,00</p>
+              >{dataProdutos?.promo}</p>
               <p
                 style={{
                   fontWeight: 'bold',
                   color: 'red'
                 }}
-              >R$ 1.100,00</p>
+              >{dataProdutos?.valor}</p>
 
               <form>
                 <Input

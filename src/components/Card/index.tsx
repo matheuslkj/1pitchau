@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import { Title, TitlePreco, TextPromo,Button, TextButton, CardBody  } from "./styles"
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 interface IDataCard {
     id: number;
@@ -15,7 +16,9 @@ interface IDataCard {
 
 
 export const Cards:React.FC<IDataCard>= ({id, promo,valor,nome,imagemp}) => {
-    
+  
+  const navigate = useNavigate();
+
     return(
         <>
         <CardBody>
@@ -25,7 +28,11 @@ export const Cards:React.FC<IDataCard>= ({id, promo,valor,nome,imagemp}) => {
               <TitlePreco>{valor}</TitlePreco>
               <TextPromo>{promo}</TextPromo>
                         
-              <Button>
+              <Button
+                onClick={() => {
+                  navigate('/produto/' + id)
+                }}
+              >
                 <TextButton>Detalhes</TextButton>
               </Button>
           </CardBody>

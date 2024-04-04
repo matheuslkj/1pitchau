@@ -50,6 +50,9 @@ export const Menu = () => {
                                 })
                             }
                         </NavbarLinkContainer>
+                        <NavbarLinkExtended to='/contatos'>
+                            Contatos
+                        </NavbarLinkExtended>
                     </LeftContainer>
                     <RightContainer>
                         <NavbarLinkExtended to='/carrinho'>

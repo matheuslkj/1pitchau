@@ -1,16 +1,24 @@
 import { useEffect, useState } from "react";
 import { FormContainer } from "./styles"
 import axios from "axios";
+import { Menu } from "../../components/Menu";
+import { useNavigate } from "react-router-dom";
+
 
 interface ICidades {
     id: number,
     nome: string
 }
 
+  
+
 export const Contato = () => {
+    const navigate = useNavigate();
+
 
     const [Cidades, setDataCidade] = useState<Array<ICidades>>([]);
-
+    
+    const [id, setId] = useState ("");
     const [nome, setNome] = useState ("");
     const [telefone, setTelefone] = useState ("");
     const [email, setEmail] = useState ("");
@@ -29,7 +37,7 @@ export const Contato = () => {
       }, [])
 
       function criarTarefa() {
-        axios.post('http://localhost:3000/contatos', {nome , telefone, email, cidade, obs})
+        axios.post('http://localhost:3000/contatos', {id, nome , telefone, email, cidade, obs})
             .then((res) => console.log(res.data))
             .catch(err => console.error(err))
             
@@ -46,6 +54,7 @@ export const Contato = () => {
 
     return (
         <>
+        <Menu/>
             <body>
                 <FormContainer onSubmit={criarTarefa}   >
                     <div>
@@ -76,11 +85,17 @@ export const Contato = () => {
 
                             <textarea name="obs" id="" value={obs} onChange={e => setObs(e.target.value)} ></textarea>
 
-                            <button type="submit" onSubmit={limparCampos} >Enviar</button>
+                            <button type="submit" onSubmit={limparCampos} 
+                            
+                            >Enviar</button>
 
                     </div>
                     
                 </FormContainer>
+
+                <button onClick={() => {
+                                navigate('/list')
+                              }} > Lista</button>
             </body>
         </>
     )

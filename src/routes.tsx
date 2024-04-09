@@ -7,8 +7,8 @@ import { Home } from './pages/Home'
 import { Carrinho } from './pages/Carrinho'
 import { Contato } from './pages/Contato'
 import { Produtos } from './pages/Produtos'
-import { Lista } from './components/Lista'
-import { List } from './pages/Contato/list'
+import { Lista } from './pages/Lista'
+import { List } from './pages/list'
 
 export const Rotas = () => {
 

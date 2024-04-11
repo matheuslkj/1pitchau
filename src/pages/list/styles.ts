@@ -48,7 +48,7 @@ export const Detalhes = styled.td`
 
   button{
     background-color: var(--blue);
-    color: var(--black);
+    color: var(--white);
     border: none;
     padding: 8px 12px;
     border-radius: 5px;

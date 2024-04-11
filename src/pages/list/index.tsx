@@ -38,10 +38,9 @@ export const List = () => {
       <Header>
         <Headers>
           <td>Nome</td>
-          <td>Telefone</td>
-          <td>Email</td>
           <td>Cidade</td>
           <td>#</td>
+        
         </Headers>
       </Header>
       {
@@ -50,8 +49,6 @@ export const List = () => {
         <Informacoes>
           <tr>
             <td>{contato.nome}</td>
-            <td>{contato.telefone}</td>
-            <td>{contato.email}</td>
             <td>{contato.cidade}</td>
             <Detalhes>
             <Link to={'http://localhost:3001/lista/' + contato.id}

@@ -19,36 +19,12 @@
       "obs": "dfkjsdhfkjshdkfjhsdkj"
     },
     {
-      "id": "d3f7",
-      "nome": "asdas",
-      "telefone": "5454654654",
-      "email": "qweqweqwe@waeqweqweqwe.com",
-      "cidade": "",
-      "obs": ""
-    },
-    {
       "id": "57e8",
       "nome": "asdas",
       "telefone": "5454654654",
       "email": "qweqweqwe@waeqweqweqwe.com",
       "cidade": "Umuarama",
       "obs": "werwer"
-    },
-    {
-      "id": "7a7e",
-      "nome": "ttttttttttttt",
-      "telefone": "5454654654",
-      "email": "uuuuuuuuuu@waeqweqweqwe.com",
-      "cidade": "",
-      "obs": "uuuuuuuuuuuuu"
-    },
-    {
-      "id": "942d",
-      "nome": "asdas",
-      "telefone": "5454654654",
-      "email": "qweqweqwe@waeqweqweqwe.com",
-      "cidade": "",
-      "obs": ""
     },
     {
       "id": "84dd",
@@ -75,20 +51,12 @@
       "obs": "sdasdasd"
     },
     {
-      "id": "",
-      "nome": "theo",
-      "telefone": "5454654654",
-      "email": "qweqweqwe@waeqweqweqwe.com",
-      "cidade": "Perola",
-      "obs": "fghfghfghfghf"
-    },
-    {
-      "id": "",
-      "nome": "theo",
-      "telefone": "zxczx",
-      "email": "zxczx@gmail.com",
-      "cidade": "Perola",
-      "obs": "zxczxcz"
+      "id": "c0b6",
+      "nome": "sdfsdfsdf",
+      "telefone": "sdfsdfsdf",
+      "email": "asdadasd@gmail.com",
+      "cidade": "Esperança Nova",
+      "obs": "sdfsdfsd"
     }
   ],
   "cidades": [

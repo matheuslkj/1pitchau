@@ -75,6 +75,22 @@ export const FormContainer = styled.form`
             filter: brightness(0.9);
         }
 
+     
+        
     }
+    
 
 `
+export const Button = styled.button`
+    border: 0;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: ${(props: any) => props.bgColor || `var(--blue)`};
+    :hover {
+        filter: brightness(1.3);
+    }
+    margin-top: 10px;
+`;
+export const TextButton = styled.h3`
+    color: var(--white);
+`;

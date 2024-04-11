@@ -13,7 +13,7 @@ export const CardHeader = styled.div`
   border: 1px solid var(--black);
   text-align: center;
   padding: 10px;
-  background-color: var(--red);
+  background-color: var(--blue);
   margin-bottom: -19px;
 `
 
@@ -32,8 +32,8 @@ export const CardBody = styled.div`
   }
 
   button{
-    background-color: var(--red);
-    color: var(--black);
+    background-color: var(--blue);
+    color: var(--white);
     border: none;
     padding: 8px 12px;
     border-radius: 5px;

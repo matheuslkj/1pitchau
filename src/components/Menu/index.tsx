@@ -53,6 +53,9 @@ export const Menu = () => {
                         <NavbarLinkExtended to='/contatos'>
                             Contatos
                         </NavbarLinkExtended>
+                        <NavbarLinkExtended to='/list'>
+                            Lista
+                        </NavbarLinkExtended>
                     </LeftContainer>
                     <RightContainer>
                         <NavbarLinkExtended to='/carrinho'>

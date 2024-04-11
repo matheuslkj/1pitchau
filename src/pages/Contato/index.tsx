@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FormContainer } from "./styles"
+import { Button, FormContainer, TextButton } from "./styles"
 import axios from "axios";
 import { Menu } from "../../components/Menu";
 import { useNavigate } from "react-router-dom";
@@ -18,7 +18,6 @@ export const Contato = () => {
 
     const [Cidades, setDataCidade] = useState<Array<ICidades>>([]);
     
-    const [id, setId] = useState ("");
     const [nome, setNome] = useState ("");
     const [telefone, setTelefone] = useState ("");
     const [email, setEmail] = useState ("");
@@ -37,7 +36,7 @@ export const Contato = () => {
       }, [])
 
       function criarTarefa() {
-        axios.post('http://localhost:3000/contatos', {id, nome , telefone, email, cidade, obs})
+        axios.post('http://localhost:3000/contatos', {nome , telefone, email, cidade, obs})
             .then((res) => console.log(res.data))
             .catch(err => console.error(err))
             
@@ -88,14 +87,19 @@ export const Contato = () => {
                             <button type="submit" onSubmit={limparCampos} 
                             
                             >Enviar</button>
+                            <Button type="button">
+                  <TextButton onClick={() => {
+                                navigate('/list')
+                              }} >
+                   Lista
+                  </TextButton>
+                </Button>
 
                     </div>
                     
                 </FormContainer>
 
-                <button onClick={() => {
-                                navigate('/list')
-                              }} > Lista</button>
+                
             </body>
         </>
     )
